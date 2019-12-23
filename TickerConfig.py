@@ -9,19 +9,19 @@ TICKET_TYPE = 1
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
-    "2020-01-18"
+    "2020-01-20","2020-01-21","2020-01-22","2020-01-19"
 ]
 
 # 填入需要购买的车次(list)，"G1353"
 # 修改车次填入规则，注：(以前设置的车次逻辑不变)，如果车次填入为空，那么就是当日乘车所有车次都纳入筛选返回
 # 不填车次是整个list为空才算，如果不是为空，依然会判断车次的，这种是错误的写法 [""], 正确的写法 []
-STATION_TRAINS = []
+STATION_TRAINS = ["G651","G671","G571","G307","G655","G429","G667","G673","G663","G665","G669"]
 
 # 出发城市，比如深圳北，就填深圳就搜得到
-FROM_STATION = "广州南"
+FROM_STATION = "北京西"
 
 # 到达城市 比如深圳北，就填深圳就搜得到
-TO_STATION = "隆回"
+TO_STATION = "洛阳"
 
 # 座位(list) 多个座位ex:
 # "商务座",
@@ -33,7 +33,7 @@ TO_STATION = "隆回"
 # "硬座",
 # "无座",
 # "动卧",
-SET_TYPE = ["二等座"]
+SET_TYPE = ["二等座","一等座"]
 
 # 当余票小于乘车人，如果选择优先提交，则删减联系人和余票数一致在提交
 # bool
@@ -42,11 +42,11 @@ IS_MORE_TICKET = True
 # 乘车人(list) 多个乘车人ex:
 # "张三",
 # "李四"
-TICKET_PEOPLES = []
+TICKET_PEOPLES = ["宋文通"]
 
 # 12306登录账号
-USER = ""
-PWD = ""
+USER = "275712575@qq.com"
+PWD = "zhan159753"
 
 # 加入小黑屋时间默认为5分钟，此功能为了防止僵尸票导致一直下单不成功错过正常的票
 TICKET_BLACK_LIST_TIME = 5
@@ -54,9 +54,9 @@ TICKET_BLACK_LIST_TIME = 5
 # 自动打码
 IS_AUTO_CODE = True
 
-# 设置2本地自动打码，需要配置tensorflow和keras库，3为云打码，由于云打码服务器资源有限(为2h4C的cpu服务器)，请不要恶意请求，不然只能关闭服务器
+# 设置2本地自动打码，需要配置和keras库，3为云打码，由于云打码服务器资源有限(为2h4C的cpu服务器)，请不要恶意请求，不然只能关闭服务器
 # ps: 请不要一直依赖云服务器资源，在此向所有提供服务器同学表示感谢
-AUTO_CODE_TYPE = 3
+AUTO_CODE_TYPE = 2
 
 # 此处设置云打码服务器地址，如果有自建的服务器，可以自行更改
 HOST = "120.77.154.140:8000"
@@ -81,7 +81,7 @@ HTTP_TYPE = "http"
 #  host: "smtp.qq.com"
 EMAIL_CONF = {
     "IS_MAIL": True,
-    "email": "",
+    "email": "275712575@qq.com",
     "notice_email_list": "",
     "username": "",
     "password": "",
@@ -90,8 +90,8 @@ EMAIL_CONF = {
 
 # 是否开启 server酱 微信提醒， 使用前需要前往 http://sc.ftqq.com/3.version 扫码绑定获取 SECRET 并关注获得抢票结果通知的公众号
 SERVER_CHAN_CONF = {
-    "is_server_chan": False,
-    "secret": ""
+    "is_server_chan": True,
+    "secret": "SCU71306Tb7505c2a7f6aa67257a7abb046f050795e00a78d8d2c2"
 }
 
 # 是否开启cdn查询，可以更快的检测票票 1为开启，2为关闭
@@ -113,7 +113,7 @@ ORDER_MODEL = 1
 IS_PROXY = 0
 
 # 预售放票时间, 如果是捡漏模式，可以忽略此操作
-OPEN_TIME = "12:59:57"
+OPEN_TIME = "07:59:50"
 # 1=使用selenium获取devicesID
 # 2=使用网页端/otn/HttpZF/logdevice获取devicesId，这个接口的算法目前可能有点问题，如果登录一直302的请改为配置1
 # 3=自己打开浏览器在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium
@@ -126,8 +126,9 @@ CHROME_PATH = "/usr/src/app/chromedriver"
 CHROME_CHROME_PATH = "/opt/google/chrome/google-chrome"
 
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
-RAIL_EXPIRATION = ""
-RAIL_DEVICEID = ""
+#
+RAIL_EXPIRATION = "1577416815808"
+RAIL_DEVICEID = "TDCB-0rDiFJkTZ0pIPuJ8_6mCWHFq96RVyB804b1DRt0KdGpIxkDfeEzwct8f0WMKw4YLB-75Fm33d6hHKfBo-xkim1xAt6K-m3iivjdJ54vUAtrP22DA3jZs0uGRMAhZD7wsFfHM7lHlDVxliScLZT_5QmOIwe5"
 # RAIL_EXPIRATION = "1577034103293"
 # RAIL_DEVICEID = "CDno29Erc_Pf3FSXb4dzq-Op64EhWrsi5yUZKVIKR1MAfYo2qFlCeXD8VkexY7_1qg-ClV-fE8j9jgVlPZxRh3wVc2iqLe_5A8sdr62qZx4B22JPF8lFCjpgTKZ5ODW90HJd5tiQsJ1KR9nOqHRxHj1FT5LEIwfw"
 
